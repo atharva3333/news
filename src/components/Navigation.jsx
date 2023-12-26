@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "@/utils/firebase.config";
+import Link from "next/link";
 
 export default function Navigation() {
 
@@ -11,7 +12,7 @@ export default function Navigation() {
     return (
         <div className="container mx-auto sm:px-10 px-1">
       <nav className="flex justify-around items-center  my-4">
-        <h3 className="font-black text-3xl tracking-wide">Trendify.</h3>
+        <h3 className="font-black text-3xl tracking-wide"><Link href="/news">Trendify.</Link></h3>
         {user && 
         <div className="flex gap-4 items-center">
          {<Image className="rounded-full" src={user.photoURL} width={50} height={50} alt="user-profile"/>}

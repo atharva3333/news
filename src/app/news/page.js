@@ -3,9 +3,11 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import ImageWithFallback from "@/components/ImageWithFallback";
+import { useArticle } from "../context/ArticleContext";
 
 export default function News() {
   const [newsData, setNewsData] = useState(null);
+  const { setArticle, articleData } = useArticle();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,6 +25,13 @@ export default function News() {
     fetchData();
   }, []); // Empty dependency array ensures that the effect runs only once on component mount
 
+  const handleArticleClick = (article) => {
+    // Set the article data in the context
+    setArticle(article);
+  };
+
+  // console.log(articleData);
+
   console.log(newsData);
 
   return (
@@ -35,36 +44,33 @@ export default function News() {
           {newsData.articles.map((article, index) => (
             <li key={index} className="my-8 pb-4 shadow-xl rounded-[31px]">
               {article.urlToImage &&
-                article.urlToImage.startsWith("https://") && (
-                  <ImageWithFallback
-                    
-                    src={article.urlToImage}
-                    fallbackSrc="/assets/not-found.jpg"
-                    alt={article.title}
-                  />
-                )}
-              {!article.urlToImage ||
-                (article.urlToImage &&
-                  !article.urlToImage.startsWith("https://") && (
-                    <Image
-                      className="w-full rounded-t-[31px]"
-                      src="/assets/not-found.jpg"
-                      width={300}
-                      height={300}
-                      alt="Default Image"
-                    />
-                  ))}
+              article.urlToImage.startsWith("https://") ? (
+                <ImageWithFallback
+                  className="w-full rounded-t-[31px]"
+                  src={article.urlToImage}
+                  fallbackSrc="/assets/not-found.jpg"
+                  alt={article.title}
+                />
+              ) : (
+                <Image
+                  className="w-full rounded-t-[31px]"
+                  src="/assets/not-found.jpg"
+                  width={300}
+                  height={300}
+                  alt="Default Image"
+                />
+              )}
               <div className="px-8 mt-8">
                 <h3 className="font-bold text-xl">{article.title}</h3>
                 <p className="my-8">{article.description}</p>
-                {article.url && (
-                  <Link
-                    href={article.url}
-                    className="text-blue-500 underline text-center"
-                  >
-                    Read Full article
-                  </Link>
-                )}
+                <Link
+                  href={"/article"}
+                  passHref
+                  onClick={() => handleArticleClick(article)}
+                  className="text-blue-600"
+                >
+                  Read More..
+                </Link>
               </div>
             </li>
           ))}
