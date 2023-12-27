@@ -24,6 +24,7 @@ export default function News() {
           `https://newsapi.org/v2/top-headlines?country=in&apiKey=b91aa92bd41d4973a4b4ee7e27efc6f9`
         );
         const data = await response.json();
+        console.log("got data",data);
         setNewsData(data);
       } catch (error) {
         console.error("Error fetching news data:", error);
@@ -75,7 +76,7 @@ export default function News() {
 
   // console.log(articleData);
 
-  // console.log(newsData);
+  console.log(newsData);
 
   return (
     <div className="container mx-auto">
