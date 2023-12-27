@@ -34,14 +34,14 @@ export default function Article() {
       {articleData.urlToImage &&
         articleData.urlToImage.startsWith("https://") ? (
                 <ImageWithFallback
-                  className="w-full rounded-t-[31px]"
+                  className="w-full rounded-[31px]"
                   src={articleData.urlToImage}
                   fallbackSrc="/assets/not-found.jpg"
                   alt={articleData.title}
                 />
               ) : (
                 <Image
-                  className="w-full rounded-t-[31px]"
+                  className="w-full rounded-[31px]"
                   src="/assets/not-found.jpg"
                   width={300}
                   height={300}
