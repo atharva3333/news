@@ -65,11 +65,11 @@ export default function News() {
     }
   };
 
-  useEffect(() => {
-    if(!user){
-      redirect("/")
-    }
-  }, [user])
+  // useEffect(() => {
+  //   if(!user){
+  //     redirect("/")
+  //   }
+  // }, [user])
 
 
 

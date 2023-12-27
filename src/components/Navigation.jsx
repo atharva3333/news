@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "@/utils/firebase.config";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 
 export default function Navigation() {
   const [user] = useAuthState(auth);
@@ -13,7 +14,7 @@ export default function Navigation() {
     try {
       await auth.signOut();
       setDropdownVisible(!dropdownVisible);
-      redirect("/")
+      redirect("/");
     } catch (error) {
       console.error('Error signing out user', error);
     }
