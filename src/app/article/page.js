@@ -4,6 +4,7 @@ import { useArticle } from '../context/ArticleContext';
 import Image from 'next/image';
 import ImageWithFallback from '@/components/ImageWithFallback';
 import { useEffect, useState } from 'react';
+import { redirect } from 'next/dist/server/api-utils';
 export default function Article() {
   const { articleData } = useArticle();
  const [date,setDate] = useState();
@@ -28,6 +29,8 @@ export default function Article() {
       
     </div>;
   }
+
+  
 
   return (
     <div className=' container max-w-[1200px] mt-16 mx-auto text-center'>
@@ -69,12 +72,12 @@ export default function Article() {
       
       <div className=' my-20 hover:scale-105 ease-in-out duration-300'>
       {articleData.url && (
-                  <Link
+                  <a target='_blank'
                     href={articleData.url}
                     className="text-white rounded-full bg-orange-500 hover:bg-orange-600  px-8 py-4 font-bold text-center"
                   >
                     Go to Official website
-                  </Link>
+                  </a>
                 )}
                 </div>
 

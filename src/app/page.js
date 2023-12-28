@@ -38,9 +38,13 @@ export default function Home() {
         loading="lazy"
       />
       <div>
-      <h1 className="font-bold text-3xl md:text-5xl lg:text-7xl sm:mt-0 mt-12">Hurry up! <br/> News is like samosas <br/> best when fresh.</h1>
+      <h1 className="font-bold text-3xl md:text-5xl lg:text-7xl sm:mt-0 mt-12">Hurry up! <br/> News is like <span className="text-[#FF6C22]">samosas</span>  <br/> best when fresh.</h1>
       <p className="text-slate-500 sm:mt-6 mt-4 text-[22px] tracking-wide">Join our spicy news platter now!</p>
-        <button className=" bg-violet-800 px-16 py-6 text-slate-100 font-bold rounded-3xl sm:mt-10 mt-4 text-xl" onClick={handleSignIn}>Let me in</button>
+        <button className=" bg-[#FF6C22] px-16 py-6 text-slate-100 font-bold rounded-3xl sm:mt-10 mt-4 text-xl" 
+        
+        onClick={handleSignIn}>Yes!, Let me in
+        <Image className="inline-block ml-4" width="25" height="25" src="https://img.icons8.com/ios-filled/50/FFFFFF/google-logo.png" alt="google-logo"/>
+        </button>
       </div>
     </div>
     </div>

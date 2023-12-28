@@ -13,11 +13,11 @@ export default function Favourites() {
   const [user] = useAuthState(auth);
   const [articles, setArticles] = useState([]);
 
-  // useEffect(() => {
-  //   if (!user) {
-  //     redirect("/");
-  //   }
-  // }, [user]);
+  useEffect(() => {
+    if (!user) {
+      redirect("/");
+    }
+  }, [user]);
 
   useEffect(() => {
     const fetchData = async () => {

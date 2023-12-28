@@ -28,7 +28,7 @@ export default function Navigation() {
     <div className="container mx-auto sm:px-10 px-1">
       <nav className="flex justify-around items-center my-4">
         <h3 className="font-black text-3xl tracking-wide">
-          <Link href="/news">Trendify.</Link>
+          <Link href="/news">Trendify<span className="text-[#FF6C22]">.</span></Link>
         </h3>
         {user && (
           <div className="relative">
