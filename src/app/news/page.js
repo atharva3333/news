@@ -78,11 +78,11 @@ export default function News() {
     console.log(isGridView);
   };
 
-  useEffect(() => {
-    if(!user){
-      redirect("/")
-    }
-  }, [user])
+  // useEffect(() => {
+  //   if(!user){
+  //     redirect("/")
+  //   }
+  // }, [user])
 
   // console.log(articleData);
 
